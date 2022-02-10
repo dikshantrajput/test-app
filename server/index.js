@@ -26,8 +26,8 @@ app.get('/api/greeting', (req, res) => {
 
 const PORT = process.env.PORT || 5001;
 
-const server = app.listen(15635, () =>
-  console.log('Express server is running on ' + 15635)
+const server = app.listen(PORT, () =>
+  console.log('Express server is running on ' + PORT)
 );
 
 Gun({ file: 'db', web: server });
