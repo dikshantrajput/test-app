@@ -16,8 +16,12 @@ app.get('/api/greeting', (req, res) => {
   res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
 });
 
-const server = app.listen(3001, () =>
+const PORT = process.env.PORT || 5000;
+
+const server = app.listen(PORT, () =>
   console.log('Express server is running on localhost:3001')
 );
+
+console.log(server)
 
 Gun({ file: 'db', web: server });
