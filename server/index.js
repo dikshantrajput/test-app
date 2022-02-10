@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const Gun = require('gun/gun')
+const cors = require('cors');
 
 const app = express();
 
