@@ -5,6 +5,11 @@ const Gun = require('gun/gun')
 
 const app = express();
 
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(express.static(buildPath));
+
+app.use(cors());
+
 app.use(Gun.serve);
 
 app.use(bodyParser.urlencoded({ extended: false }));
