@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
-const Gun = require('Gun')
+const Gun = require('gun/gun')
 
 const app = express();
 
