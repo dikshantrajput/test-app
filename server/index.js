@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
-const Gun = require('gun/gun')
+const Gun = require('gun')
 const cors = require('cors');
 const path = require('path');
 
@@ -12,10 +12,11 @@ app.use(express.static(buildPath));
 
 app.use(cors());
 
-app.use(Gun.serve);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
+
+app.use(Gun.serve);
 
 app.get('/api/greeting', (req, res) => {
   const name = req.query.name || 'World';
@@ -23,12 +24,10 @@ app.get('/api/greeting', (req, res) => {
   res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const server = app.listen(PORT, () =>
   console.log('Express server is running on localhost:3001')
 );
-
-console.log(server)
 
 Gun({ file: 'db', web: server });
