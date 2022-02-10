@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const Gun = require('gun/gun')
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
