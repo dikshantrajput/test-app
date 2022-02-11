@@ -11,7 +11,7 @@ function Gunrtc() {
   const gun = useRef(null)
   
   useEffect(()=>{
-    gun.current = Gun('http://localhost:3001/gun')
+    gun.current = Gun('http://test-appsasdas.herokuapp.com/gun')
     setUsers(gun.current.get('users'))
     gun.current.get('users').get('teams').map().once((item,id)=>{
       setLocalUsers((prev)=>[...prev,{id,name:item?.n,points:item?.p}])
